@@ -160,7 +160,19 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 
+
 /* Custom ****************************** */
+
+/* archive -> 404 */ 
+function toError404() { 
+	if(is_archive() || is_search()) {
+    	header("HTTP/1.1 404 Not Found");
+        include(get_query_template('404')); //include(get_template_directory() . '/404.php');
+		exit;
+    }
+}
+add_action('template_redirect', 'toError404');
+
 
 function thisUrl($arg) {
 	echo get_template_directory_uri(). '/' . $arg;
@@ -178,17 +190,6 @@ function addMainClass() {
         if(get_page_slug(get_the_ID()) != '') {
             $class .= ' ' . get_page_slug(get_the_ID());
         }
-		
-//        $nameType = get_post_meta(get_the_ID(), 'name_type', true);
-//        
-//        if($nameType != '') 
-//            $class .= ' ' . $nameType;
-//
-//    }
-//    elseif(is_singular('shop'))
-//    	$class .= 'shop';
-//    elseif(is_home() || is_archive() || is_search() || is_single()) //is_post_type_archive($post_type)
-//    	$class .= 'list';
     }
     else
     	$class .= 'site';
@@ -197,7 +198,7 @@ function addMainClass() {
     echo $class . '"';
 }
 
-//IDからスラッグをとる
+// slug from ID
 function get_page_slug($page_id) {
     $page = get_page($page_id);
     return $page->post_name;
@@ -206,10 +207,8 @@ function get_page_slug($page_id) {
 /* Admin */
 function changeAdminMenu() {
     global $menu, $submenu, $title;
-    //unset($menu[2]);  // ダッシュボード
-    //unset($menu[4]);  // メニューの線1
     
-    $menu[5][0] = 'ニュース'; //名称変更
+    $menu[5][0] = 'ニュース'; //Name Change
     $submenu['edit.php'][5][0] = 'ニュース一覧';
     
 }

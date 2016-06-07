@@ -886,10 +886,10 @@ img.ons {
 	background: #899DBD;
 }
 .nr-btn {
-	text-align: right;
-}
-.error404 .nr-btn {
 	text-align: left;
+}
+.recruit .nr-btn {
+	text-align: right;
 }
 .nr-btn a {
 	display: inline-block;
@@ -904,10 +904,7 @@ img.ons {
 .nr-btn a:hover {
 	background: #899DBD/*#7F97BD*/;
 }
-.contact .nr-btn,
-.recruit-contact .nr-btn {
-	text-align: left;
-}
+
 .recruit .nr-btn a {
 	padding: 0.5em 2.5em;
 }
