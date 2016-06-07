@@ -4,13 +4,13 @@ uploads/
 /index.php
 *.xcworkspace
 .DS_Store
-# .gitignore
+.gitignore
 
 # *を付けないと「!」を指定しても無視されないので注意
 themes/*
 !themes/_ml/
 
-# themes/_ml/images/up_img/
+themes/_ml/images/up_img/
 themes/*/.DS_Store
 themes/*/*.xcworkspace
 themes/*/*/.DS_Store
