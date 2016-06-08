@@ -10,7 +10,7 @@ uploads/
 themes/*
 !themes/_ml/
 
-themes/_ml/images/up_img/
+# themes/_ml/images/up_img/
 themes/*/.DS_Store
 themes/*/*.xcworkspace
 themes/*/*/.DS_Store
